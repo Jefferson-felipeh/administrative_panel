@@ -1,0 +1,13 @@
+export class LoginUserModel{
+    auth!: {
+        accessToken:string
+        reflashToken:string
+    }
+    user!: {
+        id:string
+        email:string
+        firstname:string
+        lastname:string
+        cep:string
+    }
+}
