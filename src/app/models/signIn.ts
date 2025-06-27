@@ -3,6 +3,8 @@ export class LoginUserModel{
         accessToken:string
         reflashToken:string
     }
+    permissions!: []
+    role!: []
     user!: {
         id:string
         email:string
