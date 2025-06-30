@@ -37,8 +37,8 @@ export class LoginComponent{
 
         dataForm.subscribe({
             next: (response) => {
+                console.log(response);
                 this.dataUserResponse = response;
-                // console.log(this.dataUserResponse);
                 this.authState.setUser(this.dataUserResponse);
                 this.router.navigate(['/home']);
             },

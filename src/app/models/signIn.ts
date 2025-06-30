@@ -1,3 +1,15 @@
+export interface Menu{
+        active?: boolean
+        createdAt?: string
+        icon?: string
+        id?: string
+        label?: string
+        ordem?: number
+        path?: string
+        permission?: string
+        updatedAt?: string
+};
+
 export class LoginUserModel{
     auth!: {
         accessToken:string
@@ -12,4 +24,5 @@ export class LoginUserModel{
         lastname:string
         cep:string
     }
-}
+    menus!: []
+};

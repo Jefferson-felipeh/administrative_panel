@@ -1,0 +1,67 @@
+<section class="mx-1 mt-40 max-lg:mt-32 max-sm:mt-24">
+    <!-- <div *ngIf="objErro"
+        class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 w-11/12 max-w-md bg-red-500 text-white px-6 py-4 rounded-lg shadow-lg transition-opacity duration-300 ease-in">
+        <p class="text-center font-semibold">{{ objErro }}</p>
+    </div> -->
+
+    <section
+        class="container w-2/4 mx-auto bg-slate-400 flex justify-start rounded-lg shadow-2xl max-xl:w-2/5 max-lg:w-4/6 max-sm:w-full">
+
+        <form [ngClass]="formPositionClass"
+            class="bg-slate-600 w-1/2 text-white max-xl:w-full transition-transform duration-500 ease-in-out">
+            <!-- <img src="https://th.bing.com/th/id/OIP.Mij5FrSPzLa_BkftUlWI8QAAAA?rs=1&pid=ImgDetMain"
+                class="w-20 h-20 rounded-full bg-blue-400 mx-auto my-2" /> -->
+
+            <div class="w-full flex justify-center items-center gap-1 my-5 py-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                    stroke="white" class="size-14">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z" />
+                </svg>
+                <h1 class="text-white text-5xl"><a href="/">Panel</a></h1>
+            </div>
+
+            <h1 class="text-center font-bold text-sm py-6 text-white">Crie uma conta para ter acesso ao nosso sistema</h1>
+
+            <div *ngIf="step==1">
+                <personal-component (dt_inputs)="data_user($event)" [return_data]="return_step"></personal-component>
+            </div>
+
+            <div *ngIf="step==2">
+                <confirm-register-component></confirm-register-component>
+            </div>
+
+            <div class="w-full flex justify-center">
+                <button
+                    class="p-2 mx-10 my-8 w-full bg-blue-500 rounded-lg flex justify-center font-medium hover:bg-blue-300 hover:text-gray-400 max-2xl:m-4"
+                    (click)="next_step()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15M12 9l3 3m0 0-3 3m3-3H2.25" />
+                    </svg>
+                    {{nextButton}}
+                </button>
+            </div>
+
+            <div class="w-full flex" *ngIf="step == 2">
+                <button
+                    class="p-2 mx-10 mb-6 w-32 bg-blue-500 rounded-lg flex gap-2 justify-center font-medium hover:bg-blue-300 hover:text-gray-400 max-2xl:m-4"
+                    (click)="back_step()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                    voltar
+                </button>
+            </div>
+
+            <div>
+                <p class="mb-6 text-center font-medium">Já possue uma conta? <a href="/"
+                        class="font-bold text-blue-300 hover:underline">Entrar</a></p>
+            </div>
+        </form>
+    </section>
+
+</section>

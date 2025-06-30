@@ -1,25 +1,25 @@
 import { CommonModule } from "@angular/common";
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { Router } from "@angular/router";
-import { AuthStateLogin } from "../../shared/services/AuthStateLogin.service";
-import { AsideComponent } from "./aside/aside.component";
-import { NavBarComponent } from "./navbar/navbar.component";
+import { Router, RouterLink } from "@angular/router";
+import { AuthStateLogin } from "../../../shared/services/AuthStateLogin.service";
+import { Menu } from "../../../models/signIn";
 
 @Component({
-    selector: 'home-component',
+    selector: 'aside-component',
     imports: [
         FormsModule,
         CommonModule,
-        AsideComponent,
-        NavBarComponent
     ],
-    templateUrl: './home.component.html',
+    templateUrl: './aside.component.html',
     standalone: true,
     providers: [AuthStateLogin]
 })
-export class HomeComponent implements OnInit {
+export class AsideComponent implements OnInit {
+    @Input() menuOpen!:string;
+    visible: boolean = true;
     firstNameUser:string = '';
+    menus_list: Menu[] = [];
 
     constructor(
         private authState:AuthStateLogin,
@@ -29,7 +29,9 @@ export class HomeComponent implements OnInit {
     ngOnInit(){
         this.authState.user$.subscribe((res) => {
             if(res) {
+                this.visible = false;
                 this.firstNameUser = res.user.firstname;
+                this.menus_list = res.menus;
             }
             else this.router.navigate(['/'])
         });

@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { DataForm } from "../../models/dataFormLogin";
 import { Observable } from "rxjs";
+import { LoginUserModel } from "../../models/signIn";
 
 @Injectable()
 export class LoginService {
