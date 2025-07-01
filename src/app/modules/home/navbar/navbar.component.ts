@@ -1,6 +1,7 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { UserMenuComponent } from "./userMenuComponent/userMenu.component";
 import { AsideComponent } from "../aside/aside.component";
+import { LoginUserModel } from "../../../models/signIn";
 
 @Component({
     selector: 'navbar-component',
@@ -12,6 +13,10 @@ import { AsideComponent } from "../aside/aside.component";
     standalone: true
 
 })
-export class NavBarComponent{
-    @Input() firstNameUser:string = '';
+export class NavBarComponent implements OnInit{
+    @Input() data_permissions!:LoginUserModel;
+
+    ngOnInit(): void {
+        // console.log(this.data_permissions);
+    }
 }

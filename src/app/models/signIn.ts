@@ -1,13 +1,15 @@
+import { ProfileListInterface } from "./profileList"
+
 export interface Menu{
-        active?: boolean
-        createdAt?: string
-        icon?: string
-        id?: string
-        label?: string
-        ordem?: number
-        path?: string
-        permission?: string
-        updatedAt?: string
+        active: boolean
+        createdAt: string
+        icon: string
+        id: string
+        label: string
+        ordem: null
+        path: string
+        permission: string
+        updatedAt: string
 };
 
 export class LoginUserModel{
@@ -25,4 +27,5 @@ export class LoginUserModel{
         cep:string
     }
     menus!: []
+    profiles!: []
 };

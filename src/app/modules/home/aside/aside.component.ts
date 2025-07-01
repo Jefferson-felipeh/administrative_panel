@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component, Input, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { Router, RouterLink } from "@angular/router";
+import { Router } from "@angular/router";
 import { AuthStateLogin } from "../../../shared/services/AuthStateLogin.service";
 import { Menu } from "../../../models/signIn";
 
@@ -30,7 +30,7 @@ export class AsideComponent implements OnInit {
         this.authState.user$.subscribe((res) => {
             if(res) {
                 this.visible = false;
-                this.firstNameUser = res.user.firstname;
+                // this.firstNameUser = res.user.firstname;
                 this.menus_list = res.menus;
             }
             else this.router.navigate(['/'])

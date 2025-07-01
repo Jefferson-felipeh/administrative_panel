@@ -45,7 +45,5 @@ export class RegisterComponent implements OnInit {
         return this.isFormOnRight ? 'translate-x-full' : 'translate-x-0';
     }
 
-    data_user(data:any){
-        localStorage.setItem('dados_user', JSON.stringify(data));
-    }
+    data_user = (data:any) => localStorage.setItem('dados_user', JSON.stringify(data));
 }
