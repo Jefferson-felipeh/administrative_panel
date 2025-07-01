@@ -2,12 +2,11 @@
   <img class="rounded-full w-8" src="https://th.bing.com/th/id/OIP.k1zmETVHUe6b8sNSAyA19wAAAA?rs=1&pid=ImgDetMain" />
 
   <ul *ngIf="menuOpen" class="absolute right-0 mt-2 w-60 text-white font-medium bg-slate-900 shadow-lg rounded-md z-50">
-    <li class="px-5 py-1 cursor-pointer hover:bg-slate-700">Perfil</li>
-    <li class="px-5 py-1 cursor-pointer hover:bg-slate-700">Configurações</li>
-    <li class="px-5 py-1 cursor-pointer hover:bg-slate-700">Opcao1</li>
-    <li class="px-5 py-1 cursor-pointer hover:bg-slate-700">opcao2</li>
-    <li class="px-5 py-1 cursor-pointer hover:bg-slate-700">opcao3</li>
-    <li class="px-5 py-1 cursor-pointer hover:bg-slate-700">opcao4</li>
+    <div *ngFor="let profile of profilesList">
+      <li class="px-5 py-1 cursor-pointer hover:bg-slate-700">
+        <a (click)="atributt_navigate()" routerLink="{{profile['path']}}">{{profile['label']}}</a>
+      </li>
+    </div>
     <li class="px-5 py-1 cursor-pointer hover:bg-slate-700"><a (click)="signUp()">Sair</a></li>
   </ul>
 
