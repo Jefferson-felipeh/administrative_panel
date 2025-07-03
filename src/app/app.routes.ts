@@ -3,6 +3,7 @@ import { LoginComponent } from './modules/login/login.component';
 import { HomeComponent } from './modules/home/home.component';
 import { RegisterComponent } from './modules/register/register.component';
 import { MenusComponent } from './modules/menus/menus.component';
+import { ProfileComponent } from './modules/profile/profile.component';
 
 export const routes: Routes = [
     {
@@ -19,5 +20,8 @@ export const routes: Routes = [
     },
     {
         path: 'menus', component: MenusComponent
+    },
+    {
+        path: 'perfil', component: ProfileComponent
     }
 ];
