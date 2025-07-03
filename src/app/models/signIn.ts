@@ -1,4 +1,5 @@
 import { ProfileListInterface } from "./profileList"
+import { UserModel } from "./user"
 
 export interface Menu{
         active: boolean
@@ -19,13 +20,7 @@ export class LoginUserModel{
     }
     permissions!: []
     role!: []
-    user!: {
-        id:string
-        email:string
-        firstname:string
-        lastname:string
-        cep:string
-    }
+    user!:UserModel
     menus!: []
     profiles!: []
 };
