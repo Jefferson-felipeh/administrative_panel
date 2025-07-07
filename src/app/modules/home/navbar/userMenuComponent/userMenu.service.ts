@@ -19,7 +19,6 @@ export class UserMenuService{
     }
 
     getUser(id:string):Observable<UserModel>{
-        console.log(id)
         return this.httpClient.get<UserModel>(`http://localhost:3030/users/getOne/${id}`);
     }
 }
