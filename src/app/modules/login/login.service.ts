@@ -7,11 +7,11 @@ import { Observable } from "rxjs";
 export class LoginService {
   constructor(private http: HttpClient) { }
 
-  signIn(dataSignIn: DataForm): Observable<object> {
+  signIn(dataSignIn: DataForm): Observable<string> {
     if (!dataSignIn.email || !dataSignIn.password) throw new Error();
 
     //Como o HttpClient retorna uma observabel, eu preciso me inscrever nessa observabel_
-    return this.http.post('http://localhost:3031/auth/login', dataSignIn);
+    return this.http.post('http://localhost:3031/auth/login', dataSignIn,{ responseType: 'text' });
 
   }
 }
