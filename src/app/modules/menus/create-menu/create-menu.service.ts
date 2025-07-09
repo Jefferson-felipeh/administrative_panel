@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Menu } from "../../../models/signIn";
 import { Observable } from "rxjs";
+import { Menu } from "../../../models/menu";
 
 @Injectable({providedIn: 'root'})
 export class CreateMenuService{
