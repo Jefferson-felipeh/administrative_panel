@@ -1,9 +1,10 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Menu } from "../../../../models/signIn";
+
 import { ProfileListInterface } from "../../../../models/profileList";
 import { UserModel } from "../../../../models/user";
+import { Menu } from "../../../../models/menu";
 
 @Injectable({providedIn: 'root'})
 export class UserMenuService{
