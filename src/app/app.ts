@@ -8,8 +8,8 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
-  ],
+    RouterModule,
+],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
