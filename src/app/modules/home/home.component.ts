@@ -1,37 +1,52 @@
 import { CommonModule } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { Router, RouterOutlet } from "@angular/router";
+import { Router, RouterModule, RouterOutlet } from "@angular/router";
 import { AuthStateLogin } from "../../shared/services/AuthStateLogin.service";
 import { AsideComponent } from "./aside/aside.component";
 import { NavBarComponent } from "./navbar/navbar.component";
-import { LoginUserModel } from "../../models/signIn";
+import { LoginUserModel, TokenDto } from "../../models/signIn";
+import { filter, take } from "rxjs";
+import { HomeService } from "./home.service";
+import { FindUserService } from "../../shared/services/findUser.service";
 
 @Component({
     selector: 'home-component',
     imports: [
-        FormsModule,
-        CommonModule,
-        AsideComponent,
-        NavBarComponent,
-    ],
+    FormsModule,
+    CommonModule,
+    AsideComponent,
+    NavBarComponent,
+    RouterModule,
+],
     templateUrl: './home.component.html',
     standalone: true,
-    providers: [AuthStateLogin]
+    providers: []
 })
 export class HomeComponent implements OnInit {
-    firstNameUser:string = '';
-    data_pemissions!:LoginUserModel;
+    firstNameUser: string = '';
+    data_pemissions!: LoginUserModel;
+    token!:string;
+    openSideMenu!:boolean;
+    formatAside:string = '-translate-x-full lg:translate-x-0';
 
     constructor(
-        private authState:AuthStateLogin,
-        private router:Router
-    ){}
+        private homeService:HomeService
+    ) { }
 
-    ngOnInit(){
-        this.authState.user$.subscribe((res) => {
-            if(res) this.data_pemissions = res;
-            else this.router.navigate(['/'])
+    ngOnInit() {
+        const data_user = this.homeService.getAll();
+        data_user.subscribe({
+            next:(res) => {
+                console.log(res);
+                this.data_pemissions = res;
+            },
+            error: (error) => console.log(error)
         });
+    }
+
+    click = (event:boolean) => {
+        console.log(event);
+        this.openSideMenu = event;
     }
 }
