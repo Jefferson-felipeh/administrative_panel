@@ -6,7 +6,7 @@ import { ProfileListInterface } from "../../../../models/profileList";
 import { UserModel } from "../../../../models/user";
 import { Menu } from "../../../../models/menu";
 
-@Injectable({providedIn: 'root'})
+@Injectable()
 export class UserMenuService{
 
     constructor(private httpClient:HttpClient){}
@@ -21,5 +21,17 @@ export class UserMenuService{
 
     getUser(id:string):Observable<UserModel>{
         return this.httpClient.get<UserModel>(`http://localhost:3030/users/getOne/${id}`);
+    }
+
+    exitApplication(){
+        console.log('saindo da aplicação!');
+        this.httpClient.post(`http://localhost:3031/auth/exit`,{}, {withCredentials: true}).subscribe({
+            error: () => {
+
+            },
+            complete: () => {
+
+            }
+        });
     }
 }
