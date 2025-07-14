@@ -1,9 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component, Input, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { Router } from "@angular/router";
-import { AuthStateLogin } from "../../../shared/services/AuthStateLogin.service";
-import { Menu } from "../../../models/signIn";
+import { Menu } from "../../../models/menu";
 
 @Component({
     selector: 'aside-component',
@@ -13,27 +11,15 @@ import { Menu } from "../../../models/signIn";
     ],
     templateUrl: './aside.component.html',
     standalone: true,
-    providers: [AuthStateLogin]
+    providers: []
 })
 export class AsideComponent implements OnInit {
-    @Input() menuOpen!:string;
+    @Input() menus_list: Menu[] = [];
+    @Input() showAside!: boolean;
     visible: boolean = true;
     firstNameUser:string = '';
-    menus_list: Menu[] = [];
 
-    constructor(
-        private authState:AuthStateLogin,
-        private router:Router
-    ){}
+    constructor(){}
 
-    ngOnInit(){
-        this.authState.user$.subscribe((res) => {
-            if(res) {
-                this.visible = false;
-                // this.firstNameUser = res.user.firstname;
-                this.menus_list = res.menus;
-            }
-            else this.router.navigate(['/'])
-        });
-    }
+    ngOnInit(){}
 }
