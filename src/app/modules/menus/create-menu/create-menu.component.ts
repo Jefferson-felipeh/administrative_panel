@@ -2,8 +2,8 @@ import { CommonModule } from "@angular/common";
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { CreateMenuService } from "./create-menu.service";
-import { Menu } from "../../../models/signIn";
 import { Router } from "@angular/router";
+import { Menu } from "../../../models/menu";
 
 @Component({
     selector: 'create-menu-component',
@@ -31,12 +31,9 @@ export class CreateMenuComponent implements OnInit{
         private router:Router
     ){}
 
-    ngOnInit(): void {
-        console.log(this.obj_menu);
-    }
+    ngOnInit(): void {}
 
     closeMenu = () => this.close_menu.emit(false);
-
 
     createMenu(){
         const createMenu = this.createMenuService.createMenu(this.dataMenu);
