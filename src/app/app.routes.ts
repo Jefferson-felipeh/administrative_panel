@@ -6,6 +6,7 @@ import { MenusComponent } from './modules/menus/menus.component';
 import { ProfileComponent } from './modules/profile/profile.component';
 import { BodyComponent } from './modules/home/body/body.component';
 import { PermisisonResolver } from './shared/services/permissionResolver.service';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     {
@@ -21,6 +22,7 @@ export const routes: Routes = [
         path: 'home',
         component: HomeComponent,
         resolve: {allowed: PermisisonResolver},
+        canActivate: [AuthGuard],
         children: [
             {
                 path: 'menus', component: MenusComponent
