@@ -45,8 +45,5 @@ export class HomeComponent implements OnInit {
         });
     }
 
-    click = (event:boolean) => {
-        console.log(event);
-        this.openSideMenu = event;
-    }
+    click = (event:boolean) => this.openSideMenu = event;
 }
